@@ -6,8 +6,13 @@
 	objectVersion = 90;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D70A88093074348F00A1B304 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D70A88073074348A00A1B304 /* .gitignore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		000000000000000000000120 /* MadCap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MadCap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D70A88073074348A00A1B304 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,6 +37,7 @@
 			children = (
 				000000000000000000000010 /* MadCap */,
 				000000000000000000000020 /* Products */,
+				D70A88073074348A00A1B304 /* .gitignore */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +108,7 @@
 		000000000000000140000000 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				D70A88093074348F00A1B304 /* .gitignore in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */
