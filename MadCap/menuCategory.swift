@@ -7,8 +7,8 @@
 
 enum menuCategory: String {
     case none
-    case filterExpresso
-    case expressoMilk
+    case filterEspresso
+    case espressoMilk
     case signature
     case tea
     case draftFood
