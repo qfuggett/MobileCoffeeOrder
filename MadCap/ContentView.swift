@@ -26,23 +26,38 @@ struct ContentView: View {
             // overlapping panels
             // used a dictionary whose key is the label and whose value is content
             // keep things DRY
-            ForEach(menuItems.sorted { $0.key.rawValue < $1.key.rawValue }, id: \.key) { category, products in
+            ForEach(menuItems.sorted { $0.key.order < $1.key.order }, id: \.key) { category, products in
+                // .sorted {} sorts dictionary items by $0 first dictionary and $1 second dictionary entry; so it's sorting by order property
                 MenuPanel(
                     label: category.rawValue.uppercased(),
                     category: category,
                     selectedMenu: $selectedMenu,
                     content: {
                         AnyView(
+                            // allows expandable panels
                             LazyVGrid(columns: [GridItem(), GridItem()]) {
-                                ForEach(products) { product in
-                                    // Product image + name
+                                ScrollView(.horizontal) {
+                                    HStack {
+                                        ForEach(products) { product in
+                                            ProductCard(product: product)
+                                        }
+                                    }
                                 }
                             }
                         )
                     }
                 )
             }
+            Text("MADCAPCOFFEE.COM   @MADCAPCOFFEE")
+            // store data
+            // note that storeCategory is a different enum than menuItems, but they use the same Product object
+            ForEach(storeCategory.sorted { $0.key.order < $1.key.order }, id: \.key) { category, products in
+                StorePanel(
+                    
+                )
+            }
             
+            Text("ORDINARY. ELEVATED.")
         }
         // bg color
         Color(red: 246/255, green: 243/255, blue: 239/255)

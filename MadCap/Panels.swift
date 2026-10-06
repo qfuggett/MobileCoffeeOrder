@@ -32,3 +32,20 @@ struct MenuPanel: View {
         }
     }
 }
+
+struct StorePanel: View {
+    var category: storeCategory
+    @Binding var selectedMenu: storeCategory?
+    var content: () -> AnyView
+    
+    var body: some View {
+        VStack {
+            HStack {
+                
+            }
+            HStack {
+                
+            }
+        }
+    }
+}
