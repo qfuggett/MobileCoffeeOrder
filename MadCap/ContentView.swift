@@ -10,58 +10,72 @@ struct ContentView: View {
     let backgroundColor = Color(red: 246/255, green: 243/255, blue: 239/255)
     
     var body: some View {
-        VStack {
-            ZStack(alignment: .top) {
-                // logo & menu
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                    Image("MADCAP")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 150, height: 150)
-                    Image(systemName: "line.3.horizontal")
-                        .font(.title)
+        NavigationStack {
+            VStack {
+                ZStack(alignment: .top) {
+                    // logo & menu
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                        Image("MADCAP")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 150, height: 150)
+                        Image(systemName: "line.3.horizontal")
+                            .font(.title)
+                    }
                 }
-            }
-            // overlapping panels
-            // used a dictionary whose key is the label and whose value is content
-            // keep things DRY
-            ForEach(menuItems.sorted { $0.key.order < $1.key.order }, id: \.key) { category, products in
-                // .sorted {} sorts dictionary items by $0 first dictionary and $1 second dictionary entry; so it's sorting by order property
-                MenuPanel(
-                    label: category.rawValue.uppercased(),
-                    category: category,
-                    selectedMenu: $selectedMenu,
-                    content: {
-                        AnyView(
-                            // allows expandable panels
-                            LazyVGrid(columns: [GridItem(), GridItem()]) {
-                                ScrollView(.horizontal) {
-                                    HStack {
-                                        ForEach(products) { product in
-                                            ProductCard(product: product)
+                .background(backgroundColor)
+                // overlapping panels
+                // used a dictionary whose key is the label and whose value is content
+                // keep things DRY
+                ScrollView { // to scroll vertically within the entire app
+                    VStack {
+                        ForEach(menuItems.sorted { $0.key.order < $1.key.order }, id: \.key) { category, products in
+                            // .sorted {} sorts dictionary items by $0 first dictionary and $1 second dictionary entry; so it's sorting by order property
+                            MenuPanel(
+                                label: category.rawValue.uppercased(),
+                                category: category,
+                                selectedMenu: $selectedMenu,
+                                content: {
+                                    AnyView(
+                                        ScrollView(.horizontal){
+                                            HStack {
+                                                ForEach(products) { product in
+                                                        NavigationLink {
+                                                            CustomizationView(product: product)
+                                                        } label: {
+                                                            ProductCard(product: product)
+                                                        }
+                                                }
+                                            }
                                         }
+                                        .scrollContentBackground(.hidden)
+                                    )
+                                }
+                            )
+                        }
+                        Text("MADCAPCOFFEE.COM   @MADCAPCOFFEE")
+                        // store data
+                        ForEach(storeItems.sorted { $0.key.order < $1.key.order }, id: \.key) { category, items in
+                            ScrollView(.horizontal){
+                                HStack {
+                                    ForEach(items) { item in
+                                        ProductCard(product: item)
                                     }
                                 }
                             }
-                        )
+                            .scrollContentBackground(.hidden)
+                        }
+                        Text("ORDINARY. ELEVATED.")
                     }
-                )
+                    .background(backgroundColor)
+                }
+                .scrollContentBackground(.hidden)
             }
-            Text("MADCAPCOFFEE.COM   @MADCAPCOFFEE")
-            // store data
-            // note that storeCategory is a different enum than menuItems, but they use the same Product object
-            ForEach(storeCategory.sorted { $0.key.order < $1.key.order }, id: \.key) { category, products in
-                StorePanel(
-                    
-                )
-            }
-            
-            Text("ORDINARY. ELEVATED.")
-        }
-        // bg color
-        Color(red: 246/255, green: 243/255, blue: 239/255)
+            // bg color
+            .background(backgroundColor)
             .ignoresSafeArea()
+        }
     }
 }
 

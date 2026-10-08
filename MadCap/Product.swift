@@ -12,6 +12,17 @@ enum ItemType {
     case storeItem
 }
 
+enum Temperature {
+    case hot
+    case iced
+}
+
+enum Milk {
+    case whole
+    case reduced
+    case oat
+}
+
 // Live items & store items share the same struct
 struct Product: Identifiable {
     let id = UUID()
@@ -20,6 +31,14 @@ struct Product: Identifiable {
     var description: String
     var price: Double
     var type: ItemType
+    var temp: Temperature = .hot
+    var milk: Milk = .whole
+    var notes: String = ""
+    
+    func calculatePrice() -> Double {
+        let subtotal = price 
+        let tax = subtotal * 0.08
+        return subtotal + tax    }
 }
 
 struct ProductCard: View {

@@ -55,12 +55,21 @@ let menuItems: [menuCategory: [Product]] = [
 
 let storeItems: [storeCategory: [Product]] = [
     .merch: [
-        Product(name: "Pink hoodie", imageName: "pinkHoodie", description: "pink hoodie", price: 45, type: .storeItem),
+        Product(name: "Pink hoodie", imageName: "test", description: "pink hoodie", price: 45, type: .storeItem),
+        Product(name: "Pink hoodie", imageName: "test", description: "pink hoodie", price: 45, type: .storeItem),
+        Product(name: "Pink hoodie", imageName: "test", description: "pink hoodie", price: 45, type: .storeItem),
+        Product(name: "Pink hoodie", imageName: "test", description: "pink hoodie", price: 45, type: .storeItem),
     ],
     .equipment: [
-        Product(name: "LELIT BIANCA", imageName: "lelit", description: "fancy equipment", price: 1500, type: .storeItem),
+        Product(name: "LELIT BIANCA", imageName: "test", description: "fancy equipment", price: 1500, type: .storeItem),
+        Product(name: "LELIT BIANCA", imageName: "test", description: "fancy equipment", price: 1500, type: .storeItem),
+        Product(name: "LELIT BIANCA", imageName: "test", description: "fancy equipment", price: 1500, type: .storeItem),
+        Product(name: "LELIT BIANCA", imageName: "test", description: "fancy equipment", price: 1500, type: .storeItem),
     ],
     .coffee: [
-        Product(name: "FRACTION", imageName: "fraction", description: "green coffee", price: 30, type: .storeItem),
+        Product(name: "FRACTION", imageName: "test", description: "green coffee", price: 30, type: .storeItem),
+        Product(name: "FRACTION", imageName: "test", description: "green coffee", price: 30, type: .storeItem),
+        Product(name: "FRACTION", imageName: "test", description: "green coffee", price: 30, type: .storeItem),
+        Product(name: "FRACTION", imageName: "test", description: "green coffee", price: 30, type: .storeItem),
     ],
 ]
