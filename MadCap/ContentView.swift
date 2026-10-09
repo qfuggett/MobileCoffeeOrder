@@ -29,7 +29,7 @@ struct ContentView: View {
                 // used a dictionary whose key is the label and whose value is content
                 // keep things DRY
                 ScrollView { // to scroll vertically within the entire app
-                    VStack {
+                    VStack(spacing: -5) {
                         ForEach(menuItems.sorted { $0.key.order < $1.key.order }, id: \.key) { category, products in
                             // .sorted {} sorts dictionary items by $0 first dictionary and $1 second dictionary entry; so it's sorting by order property
                             MenuPanel(
@@ -42,7 +42,7 @@ struct ContentView: View {
                                             HStack {
                                                 ForEach(products) { product in
                                                         NavigationLink {
-                                                            CustomizationView(product: product)
+                                                            CustomizationView(product: product, isFoodItem: product.type == .food)
                                                         } label: {
                                                             ProductCard(product: product)
                                                         }
@@ -53,21 +53,42 @@ struct ContentView: View {
                                     )
                                 }
                             )
+                            .padding(.horizontal, 20)
                         }
                         Text("MADCAPCOFFEE.COM   @MADCAPCOFFEE")
+                            .padding(.vertical, 30)
+                            .font(.caption)
+                            .fontWeight(.medium)
+                            .tracking(0.3) // letter spacing
                         // store data
-                        ForEach(storeItems.sorted { $0.key.order < $1.key.order }, id: \.key) { category, items in
-                            ScrollView(.horizontal){
-                                HStack {
-                                    ForEach(items) { item in
-                                        ProductCard(product: item)
+                        VStack {
+                            ForEach(storeItems.sorted { $0.key.order < $1.key.order }, id: \.key) { category, items in
+                                ScrollView(.horizontal){
+                                    HStack {
+                                        ForEach(items) { item in
+                                            NavigationLink {
+                                                CustomizationView(product: item, isFoodItem: item.type == .food)
+                                            } label: {
+                                                ProductCard(product: item)
+                                            }
+                                        }
                                     }
                                 }
+                                .scrollContentBackground(.hidden)
                             }
-                            .scrollContentBackground(.hidden)
                         }
+                        .background(panelMenu)
+                        .cornerRadius(12)
+                        .shadow(radius: 4)
+                        .padding(.horizontal, 20)
                         Text("ORDINARY. ELEVATED.")
+                            .padding(.vertical, 30)
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                            .tracking(0.2)
                     }
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+
                     .background(backgroundColor)
                 }
                 .scrollContentBackground(.hidden)

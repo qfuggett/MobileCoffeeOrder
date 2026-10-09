@@ -23,5 +23,5 @@ struct OrderConfirmationView: View {
 }
 
 #Preview {
-    OrderConfirmationView(product: Product(name: "PLACEBO DECAF", imageName: "test", description: "decaf coffee", price: 6.50, type: .product, temp: .hot, notes: "No sugar"))
+    OrderConfirmationView(product: Product(name: "PLACEBO DECAF", imageName: "test", description: "decaf coffee", price: 6.50, type: .food, temp: .hot, notes: "No sugar"))
 }

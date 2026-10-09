@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum ItemType {
-    case product
+    case food
     case storeItem
 }
 
@@ -46,9 +46,6 @@ struct ProductCard: View {
     
     var body: some View {
         VStack {
-            Text("$\(String(format: "%.2f", product.price))")
-                .font(.subheadline)
-            
             Image(product.imageName)
                 .resizable()
                 .scaledToFit()
@@ -56,9 +53,6 @@ struct ProductCard: View {
             
             Text(product.name)
                 .font(.headline)
-            
-            Text(product.description)
-                .font(.caption)
             
         }
         .frame(width: 150)
