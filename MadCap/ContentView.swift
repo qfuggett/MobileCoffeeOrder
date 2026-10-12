@@ -16,13 +16,16 @@ struct ContentView: View {
                     // logo & menu
                     HStack {
                         Image(systemName: "magnifyingglass")
+                        Spacer() // a flexible view that expands to fill available space according to the same axis of the stack it is nested within
                         Image("MADCAP")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 150, height: 150)
+                        Spacer()
                         Image(systemName: "line.3.horizontal")
                             .font(.title)
                     }
+                    .padding(.horizontal, 20)
                 }
                 .background(backgroundColor)
                 // overlapping panels
@@ -33,7 +36,7 @@ struct ContentView: View {
                         ForEach(menuItems.sorted { $0.key.order < $1.key.order }, id: \.key) { category, products in
                             // .sorted {} sorts dictionary items by $0 first dictionary and $1 second dictionary entry; so it's sorting by order property
                             MenuPanel(
-                                label: category.rawValue.uppercased(),
+                                label: category.displayName,
                                 category: category,
                                 selectedMenu: $selectedMenu,
                                 content: {
@@ -97,6 +100,8 @@ struct ContentView: View {
             .background(backgroundColor)
             .ignoresSafeArea()
         }
+        .font(.system(.body, design: .serif))
+        .tint(Color(red: 33/255, green: 33/255, blue: 33/255))
     }
 }
 

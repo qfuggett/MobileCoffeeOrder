@@ -24,6 +24,17 @@ enum menuCategory: String {
         case .draftFood: return 5
         }
     }
+    
+    var displayName: String {
+        switch self {
+        case .none: return ""
+        case .filterEspresso: return "FILTER & EXPRESSO"
+        case .espressoMilk: return "EXPRESSO + MILK"
+        case .signature: return "SIGNATURE"
+        case .tea: return "TEA"
+        case .draftFood: return "DRAFT & FOOD"
+        }
+    }
 }
 
 enum storeCategory: String {

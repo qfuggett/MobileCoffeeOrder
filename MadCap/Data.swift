@@ -9,12 +9,12 @@ import SwiftUI
 
 let menuItems: [menuCategory: [Product]] = [
     .filterEspresso: [
-        Product(name: "DAY DREAM", imageName: "test", description: "plum, honey, lavender, delicate", price: 6.00, type: .food),
-        Product(name: "REKO", imageName: "test", description: "cranberry, red tea, white grape, bright", price: 6.25, type: .food),
-        Product(name: "ALIRIO MUNOZ ORTEGA", imageName: "test", description: "white grape, lemonade, dates, juicy", price: 7.50, type: .food),
+        Product(name: "DAY DREAM", imageName: "dream", description: "plum, honey, lavender, delicate", price: 6.00, type: .food),
+        Product(name: "REKO", imageName: "reko", description: "cranberry, red tea, white grape, bright", price: 6.25, type: .food),
+        Product(name: "ALIRIO MUNOZ ORTEGA", imageName: "ortega", description: "white grape, lemonade, dates, juicy", price: 7.50, type: .food),
         Product(name: "PLACEBO DECAF", imageName: "placebo", description: "candied orange, molasses, baking spice, silky", price: 5.50, type: .food),
         Product(name: "EUREKA", imageName: "eureka", description: "dark coco, star anise, nutmeg, full", price: 4.25, type: .food),
-        Product(name: "ALIRIO MUNOZ ORTEGA ESPRESSO", imageName: "alirioEXPRESSO", description: "cherry, lemon curd, gala apple, soft", price: 4.75, type: .food),
+        Product(name: "ALIRIO MUNOZ ORTEGA ESPRESSO", imageName: "alirio", description: "cherry, lemon curd, gala apple, soft", price: 4.75, type: .food),
     ],
     .espressoMilk: [
         Product(name: "ESPRESSO CASCARA TONIC", imageName: "cascara", description: "Tonic and cascara syrups with espresso and sparkling water. Available iced only. 12 oz", price: 7.00, type: .food),
@@ -33,14 +33,14 @@ let menuItems: [menuCategory: [Product]] = [
     .tea: [
         Product(name: "MARSHMALLOW", imageName: "marshmallow", description: "BOTANICAL\nIngredients: marshmallow root, chamomile, or orange peel", price: 4.50, type: .food),
         Product(name: "MEADOW", imageName: "meadow", description: "BOTANICAL\nIngredients: tarragon, spearmint, lemongrass", price: 4.50, type: .food),
-        Product(name: "CAI CHA", imageName: "cai-cha", description: "GREEN\nNotes: guava, toasted rice paper, nori", price: 4.50, type: .food),
-        Product(name: "SHAN LIN XI WINTER SPROUT", imageName: "shan-lin-xi", description: "LIGHT OOLONG\nNotes: cotton candy, caramelized ginger, kettle corn", price: 6.50, type: .food),
-        Product(name: "NANTOU DARK", imageName: "nantou-dark", description: "DARK OOLONG\nNotes: crunch cake, malt, wheat toast", price: 5.50, type: .food),
-        Product(name: "A DIFFERENT EIGHTEEN", imageName: "different-eighteen", description: "RED\nNotes: molasses, toffee, buttered toast", price: 6.00, type: .food),
-        Product(name: "CASCARA", imageName: "cascara", description: "COFFEE CHERRY\nNotes: hibiscus, peach, vanilla", price: 4.50, type: .food),
-        Product(name: "CHAI LATTE", imageName: "chai-latte", description: "Tea latte with house made chai. Available hot or iced. 10 oz.", price: 6.25, type: .food),
-        Product(name: "MATCHA LATTE", imageName: "matcha-latte", description: "Premium matcha from Ketti prepared as a latte. Available hot or iced. 10 oz.", price: 7.00, type: .food),
-        Product(name: "YUZU MANGO MATCHA LATTE", imageName: "yuzu-mango-matcha", description: "Yuzu juice, creamy mango, and matcha. Available hot or iced. 10 oz | Available hot or iced", price: 8.75, type: .food),
+        Product(name: "CAI CHA", imageName: "caiCha", description: "GREEN\nNotes: guava, toasted rice paper, nori", price: 4.50, type: .food),
+        Product(name: "SHAN LIN XI WINTER SPROUT", imageName: "shan", description: "LIGHT OOLONG\nNotes: cotton candy, caramelized ginger, kettle corn", price: 6.50, type: .food),
+        Product(name: "NANTOU DARK", imageName: "nantou", description: "DARK OOLONG\nNotes: crunch cake, malt, wheat toast", price: 5.50, type: .food),
+        Product(name: "A DIFFERENT EIGHTEEN", imageName: "different", description: "RED\nNotes: molasses, toffee, buttered toast", price: 6.00, type: .food),
+        Product(name: "CASCARA", imageName: "cascaraTea", description: "COFFEE CHERRY\nNotes: hibiscus, peach, vanilla", price: 4.50, type: .food),
+        Product(name: "CHAI LATTE", imageName: "chai", description: "Tea latte with house made chai. Available hot or iced. 10 oz.", price: 6.25, type: .food),
+        Product(name: "MATCHA LATTE", imageName: "matcha", description: "Premium matcha from Ketti prepared as a latte. Available hot or iced. 10 oz.", price: 7.00, type: .food),
+        Product(name: "YUZU MANGO MATCHA LATTE", imageName: "yuzu", description: "Yuzu juice, creamy mango, and matcha. Available hot or iced. 10 oz | Available hot or iced", price: 8.75, type: .food),
     ],
     .draftFood: [
         Product(name: "NITRO COLD COFFEE", imageName: "nitro", description: "fruite punch, cherry blossom, plum", price: 5.50, type: .food),

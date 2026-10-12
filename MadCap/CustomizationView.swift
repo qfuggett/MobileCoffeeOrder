@@ -23,6 +23,8 @@ struct CustomizationView: View {
                 //                TextField("Enter a customer name", text: $customerName)
                 Text(product.name)
                     .font(.headline)
+                Text(product.description)
+                    .font(.subheadline)
                 VStack {
                     Text("TEMPERATURE")
                     Picker("Hot or Iced?", selection: $product.temp) {

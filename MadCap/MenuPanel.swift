@@ -17,7 +17,9 @@ struct MenuPanel: View {
             Button(label) {
                 selectedMenu = selectedMenu == category ? nil : category
             }
-            .frame(maxWidth: .infinity)
+            .font(.system(.body, design: .serif))
+            .tracking(0.8)
+            .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.vertical, 16)
             .padding(.horizontal, 12)
             .background(Color(red: 232/255, green: 227/255, blue: 219/255))
