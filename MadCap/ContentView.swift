@@ -42,15 +42,18 @@ struct ContentView: View {
                                 content: {
                                     AnyView(
                                         ScrollView(.horizontal){
-                                            HStack {
-                                                ForEach(products) { product in
-                                                        NavigationLink {
-                                                            CustomizationView(product: product, isFoodItem: product.type == .food)
-                                                        } label: {
-                                                            ProductCard(product: product)
-                                                        }
+                                            VStack {
+                                                HStack {
+                                                    ForEach(products) { product in
+                                                            NavigationLink {
+                                                                CustomizationView(product: product, isFoodItem: product.type == .food)
+                                                            } label: {
+                                                                ProductCard(product: product)
+                                                            }
+                                                    }
                                                 }
                                             }
+                                            .padding(10)
                                         }
                                         .scrollContentBackground(.hidden)
                                     )
@@ -67,15 +70,18 @@ struct ContentView: View {
                         VStack {
                             ForEach(storeItems.sorted { $0.key.order < $1.key.order }, id: \.key) { category, items in
                                 ScrollView(.horizontal){
-                                    HStack {
-                                        ForEach(items) { item in
-                                            NavigationLink {
-                                                CustomizationView(product: item, isFoodItem: item.type == .food)
-                                            } label: {
-                                                ProductCard(product: item)
+                                    VStack {
+                                        HStack {
+                                            ForEach(items) { item in
+                                                NavigationLink {
+                                                    CustomizationView(product: item, isFoodItem: item.type == .food)
+                                                } label: {
+                                                    ProductCard(product: item)
+                                                }
                                             }
                                         }
                                     }
+                                    .padding(10)
                                 }
                                 .scrollContentBackground(.hidden)
                             }

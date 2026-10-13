@@ -34,6 +34,7 @@ struct Product: Identifiable {
     var temp: Temperature = .hot
     var milk: Milk = .whole
     var notes: String = ""
+    var quantity: Int = 1
     
     func calculatePrice() -> Double {
         let subtotal = price 

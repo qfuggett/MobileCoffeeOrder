@@ -12,16 +12,36 @@ struct OrderConfirmationView: View {
 //    var customerName: String
     var body: some View {
         VStack {
-            Text("Your order has been sent to the kitchen.")
-            if !product.notes.isEmpty {
-                Text("You added: '\(product.notes)' to your order.")
+            if product.type == .food {
+                VStack {
+                    Text("Your order has been sent to the kitchen.")
+                    if !product.notes.isEmpty {
+                        Text("You added: '\(product.notes)' to your order.")
+                    }
+                    Text("Your total is:")
+                    Text(String(format: "%.2f", product.calculatePrice()))
+                }
+                .font(.headline)
+            } else {
+                VStack {
+                    Text("Your order has been received. You will receive an email confirmation of shipping details.")
+                    if !product.notes.isEmpty {
+                        Text("You added: '\(product.notes)' to your order.")
+                    }
+                    Text("Your order total is:")
+                    Text(String(format: "%.2f", product.calculatePrice()))
+                }
+                .font(.headline)
             }
-            Text("Your total is:")
-            Text(String(format: "%.2f", product.calculatePrice()))
         }
+        .padding(30)
     }
 }
 
-#Preview {
-    OrderConfirmationView(product: Product(name: "PLACEBO DECAF", imageName: "test", description: "decaf coffee", price: 6.50, type: .food, temp: .hot, notes: "No sugar"))
+#Preview("Food") {
+    OrderConfirmationView(product: Product(name: "PLACEBO DECAF", imageName: "placebo", description: "decaf coffee", price: 6.50, type: .food, temp: .hot, notes: "No sugar"))
+}
+
+#Preview("StoreItem") {
+    OrderConfirmationView(product: Product(name: "MIIR 360 ALL-BLACK TRAVELER", imageName: "miir", description: "16 oz", price: 34, type: .storeItem))
 }
