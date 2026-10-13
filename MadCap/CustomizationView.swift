@@ -12,6 +12,7 @@ struct CustomizationView: View {
     //    @State var customerName: String = ""
     @State var showingSheet: Bool = false
     var isFoodItem: Bool = true
+    var isSpecialFood: String = ""
     let panelMenu = Color(red: 232/255, green: 227/255, blue: 219/255)
     let backgroundColor = Color(red: 246/255, green: 243/255, blue: 239/255)
 
@@ -30,24 +31,28 @@ struct CustomizationView: View {
                         .font(.headline)
                     Text(product.description)
                         .font(.subheadline)
-                    VStack {
-                        Text("TEMPERATURE")
-                            .padding(10)
-                        Picker("Hot or Iced?", selection: $product.temp) {
-                            Text("Hot").tag(Temperature.hot) // these reference the enum
-                            Text("Iced").tag(Temperature.iced)
+                    if isSpecialFood != "DRAFT & FOOD" {
+                        VStack {
+                            Text("TEMPERATURE")
+                                .padding(10)
+                            Picker("Hot or Iced?", selection: $product.temp) {
+                                Text("Hot").tag(Temperature.hot) // these reference the enum
+                                Text("Iced").tag(Temperature.iced)
+                            }
+                            .pickerStyle(.segmented)
                         }
-                        .pickerStyle(.segmented)
                     }
-                    VStack {
-                        Text("MILK")
-                            .padding(10)
-                        Picker("Choose your milk:", selection: $product.milk) {
-                            Text("Whole").tag(Milk.whole)
-                            Text("2%").tag(Milk.reduced) // these reference the enum
-                            Text("Oat").tag(Milk.oat)
+                    if isSpecialFood == "EXPRESSO + MILK" {
+                        VStack {
+                            Text("MILK")
+                                .padding(10)
+                            Picker("Choose your milk:", selection: $product.milk) {
+                                Text("Whole").tag(Milk.whole)
+                                Text("2%").tag(Milk.reduced) // these reference the enum
+                                Text("Oat").tag(Milk.oat)
+                            }
+                            .pickerStyle(.segmented)
                         }
-                        .pickerStyle(.segmented)
                     }
                 } else {
                     Image(product.imageName)
@@ -81,11 +86,12 @@ struct CustomizationView: View {
             }
         }
         .padding(30)
+        .background(panelMenu)
     }
 }
 
 #Preview("Food Item") {
-    CustomizationView(product: Product(name: "PLACEBO DECAF", imageName: "placebo", description: "decaf coffee", price: 6.50, type: .food, temp: .hot, milk: .reduced, notes: "No sugar"))
+    CustomizationView(product: Product(name: "PLACEBO DECAF", imageName: "placebo", description: "decaf coffee", price: 6.50, type: .food, temp: .hot, milk: .reduced, notes: "No sugar please"))
 }
 
 #Preview("Store Item") {

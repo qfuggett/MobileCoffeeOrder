@@ -22,7 +22,7 @@ struct ContentView: View {
                             .scaledToFit()
                             .frame(width: 150, height: 150)
                         Spacer()
-                        Image(systemName: "line.3.horizontal")
+                        Image(systemName: "cart")
                             .font(.title)
                     }
                     .padding(.horizontal, 20)
@@ -46,7 +46,7 @@ struct ContentView: View {
                                                 HStack {
                                                     ForEach(products) { product in
                                                             NavigationLink {
-                                                                CustomizationView(product: product, isFoodItem: product.type == .food)
+                                                                CustomizationView(product: product, isFoodItem: product.type == .food, isSpecialFood: category.displayName)
                                                             } label: {
                                                                 ProductCard(product: product)
                                                             }
@@ -97,7 +97,6 @@ struct ContentView: View {
                             .tracking(0.2)
                     }
                     .frame(maxWidth: .infinity, alignment: .topLeading)
-
                     .background(backgroundColor)
                 }
                 .scrollContentBackground(.hidden)
