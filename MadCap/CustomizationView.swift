@@ -10,7 +10,7 @@ import SwiftUI
 struct CustomizationView: View {
     @State var product: Product
     //    @State var customerName: String = ""
-    @State var showingSheet: Bool = false
+    @Environment(Cart.self) var cart
     var isFoodItem: Bool = true
     var isSpecialFood: String = ""
     let panelMenu = Color(red: 232/255, green: 227/255, blue: 219/255)
@@ -31,6 +31,7 @@ struct CustomizationView: View {
                         .font(.headline)
                     Text(product.description)
                         .font(.subheadline)
+                        .fixedSize(horizontal: false, vertical: true)
                     if isSpecialFood != "DRAFT & FOOD" {
                         VStack {
                             Text("TEMPERATURE")
@@ -62,13 +63,7 @@ struct CustomizationView: View {
                     Text(product.name)
                         .font(.headline)
                     Text(product.description)
-                }
-            }
-            .sheet(isPresented: $showingSheet) {
-                if isFoodItem {
-                    OrderConfirmationView(product: Product(name: product.name, imageName: product.imageName, description: product.description, price: product.price, type: product.type, temp: product.temp, milk: product.milk, notes: product.notes ))
-                } else {
-                    OrderConfirmationView(product: Product(name: product.name, imageName: product.imageName, description: product.description, price: product.price, type: product.type, notes: product.notes ))
+                        .fixedSize(horizontal: false, vertical: true)
                 }
             }
             VStack {
@@ -79,7 +74,7 @@ struct CustomizationView: View {
                 TextField("Any notes?", text: $product.notes)
                     .padding(10)
                 Button("ADD TO CART") {
-                    showingSheet = true
+                    cart.add(product)
                 }
                 .padding()
                 .glassEffect()
@@ -92,8 +87,10 @@ struct CustomizationView: View {
 
 #Preview("Food Item") {
     CustomizationView(product: Product(name: "PLACEBO DECAF", imageName: "placebo", description: "decaf coffee", price: 6.50, type: .food, temp: .hot, milk: .reduced, notes: "No sugar please"))
+        .environment(Cart())
 }
 
 #Preview("Store Item") {
-    CustomizationView(product: Product(name: "LELIT BIANCA", imageName: "lelit", description: "equipment", price: 1_500, type: .storeItem), isFoodItem: false)
+    CustomizationView(product: Product(name: "LELIT BIANCA", imageName: "lelit", description: "very expensive at-home barista equipment for the connosieur", price: 1_500, type: .storeItem), isFoodItem: false)
+        .environment(Cart())
 }

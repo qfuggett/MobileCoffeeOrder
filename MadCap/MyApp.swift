@@ -1,9 +1,12 @@
 import SwiftUI
 
 @main struct MyApp: App {
+    @State var cartManager = Cart() //store cart class object in state
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(cartManager) // instantiate cartManager
         }
     }
 }

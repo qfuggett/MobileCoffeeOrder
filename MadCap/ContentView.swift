@@ -4,7 +4,9 @@ import Playgrounds
 
 struct ContentView: View {
     @State var selectedMenu: menuCategory? = nil
-
+    @State var showingSheet: Bool = false
+    @Environment(Cart.self) var cart
+    
     let panelMenu = Color(red: 232/255, green: 227/255, blue: 219/255)
     let fontColor = Color(red: 33/255, green: 33/255, blue: 33/255)
     let backgroundColor = Color(red: 246/255, green: 243/255, blue: 239/255)
@@ -15,15 +17,22 @@ struct ContentView: View {
                 ZStack(alignment: .top) {
                     // logo & menu
                     HStack {
-                        Image(systemName: "magnifyingglass")
+                        Image(systemName: "magnifyingglass") //systemName is for SF symbols
+                            .accessibilityLabel("Search for an item")
                         Spacer() // a flexible view that expands to fill available space according to the same axis of the stack it is nested within
                         Image("MADCAP")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 150, height: 150)
+                            .accessibilityLabel("Welcome to MADCAP!")
                         Spacer()
-                        Image(systemName: "cart")
-                            .font(.title)
+                        Button {
+                            showingSheet = true
+                        } label: {
+                            Image(systemName: "cart")
+                                .font(.title)
+                        }
+                        .accessibilityLabel("View your cart")
                     }
                     .padding(.horizontal, 20)
                 }
@@ -104,6 +113,11 @@ struct ContentView: View {
             // bg color
             .background(backgroundColor)
             .ignoresSafeArea()
+            .sheet(isPresented: $showingSheet) {
+                if let product = cart.items.last {
+                    OrderConfirmationView(product: product)
+                }
+            }
         }
         .font(.system(.body, design: .serif))
         .tint(Color(red: 33/255, green: 33/255, blue: 33/255))
@@ -112,6 +126,7 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(Cart())
 }
 
 

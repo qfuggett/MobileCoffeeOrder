@@ -27,7 +27,9 @@ struct MenuPanel: View {
             .shadow(radius: 4)
             .foregroundColor(Color(red: 33/255, green: 33/255, blue: 33/255))
             .buttonStyle(.plain)
-            
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("\(category.displayName)")
+
             if selectedMenu == category {
                 content()
             }

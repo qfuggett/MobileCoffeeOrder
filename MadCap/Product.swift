@@ -25,7 +25,7 @@ enum Milk {
 
 // Live items & store items share the same struct
 struct Product: Identifiable {
-    let id = UUID()
+    var id = UUID()
     var name: String
     var imageName: String
     var description: String
@@ -37,13 +37,14 @@ struct Product: Identifiable {
     var quantity: Int = 1
     
     func calculatePrice() -> Double {
-        let subtotal = price 
-        let tax = subtotal * 0.08
-        return subtotal + tax    }
+        let subtotal = price * Double(quantity)
+            let tax = subtotal * 0.08
+            return subtotal + tax
+    }
 }
 
 struct ProductCard: View {
-    let product: Product
+    var product: Product
     
     var body: some View {
         VStack {
@@ -57,5 +58,7 @@ struct ProductCard: View {
             
         }
         .frame(width: 150)
+        .accessibilityElement(children: .ignore) //replaces all previous child elements with one label
+        .accessibilityLabel("\(product.name), Details: \(product.price), $\(String(format: "%.2f", product.price))")
     }
 }
