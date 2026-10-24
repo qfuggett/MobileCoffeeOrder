@@ -21,7 +21,7 @@ These screenshots illustrate the prototype's design and ordering flow. Some deta
 
 <p>
   <img src="MadCap/docs/ContentView.png" alt="Home screen with menu categories and merchandise" width="260" />
-  <img src="docs/images/ContentView2.png" alt="Expanded espresso and milk menu with horizontally scrolling drinks" width="260" />
+  <img src="MadCap/docs/ContentView2.png" alt="Expanded espresso and milk menu with horizontally scrolling drinks" width="260" />
 </p>
 
 ### Drink and merchandise customization
