@@ -20,20 +20,20 @@ These screenshots illustrate the prototype's design and ordering flow. Some deta
 ### Storefront and menu browsing
 
 <p>
-  <img src="MadCap/docs/images/ContentView.png" alt="Home screen with menu categories and merchandise" width="260" />
-  <img src="MadCap/docs/images/ContentView2.png" alt="Expanded espresso and milk menu with horizontally scrolling drinks" width="260" />
+  <img src="docs/images/ContentView.png" alt="Home screen with menu categories and merchandise" width="260" />
+  <img src="docs/images/ContentView2.png" alt="Expanded espresso and milk menu with horizontally scrolling drinks" width="260" />
 </p>
 
 ### Drink and merchandise customization
 
 <p>
-  <img src="MadCap/docs/images/ContentView3.png" alt="Espresso Cascara Tonic detail screen with temperature, milk, quantity, and notes controls" width="260" />
-  <img src="MadCap/docs/images/ContentView4.png" alt="Essential Cap detail screen with quantity, order notes, and Add to Cart button" width="260" />
+  <img src="docs/images/ContentView3.png" alt="Espresso Cascara Tonic detail screen with temperature, milk, quantity, and notes controls" width="260" />
+  <img src="docs/images/ContentView4.png" alt="Essential Cap detail screen with quantity, order notes, and Add to Cart button" width="260" />
 </p>
 
 ### Sample order confirmation
 
-<img src="MadCap/docs/images/ContentView5.png" alt="Sample order confirmation with pickup information and order total" width="260" />
+<img src="docs/images/ContentView5.png" alt="Sample order confirmation with pickup information and order total" width="260" />
 
 ## Built With
 
